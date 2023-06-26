@@ -1,0 +1,39 @@
+@font-face {
+   font-family:Reformagroteskdemic;
+   src: url(../fonts/Reformagroteskdemic.otf);
+}
+
+@font-face {
+   font-family:Reformagroteskmediumc;
+   src: url(../fonts/Reformagroteskmediumc.otf);
+}
+
+@font-face {
+   font-family:Reformagroteskboldc;
+   src: url(../fonts/Reformagroteskboldc.otf);
+}
+
+$ff1:Reformagroteskdemic;
+$ff2:Reformagroteskmediumc;
+$ff3:Reformagroteskboldc;
+@mixin text-options( $weight, $fsize, $lheight, $lspacing ){
+   color: #fff;
+   font-size: $fsize ;
+   font-weight: $weight;
+   line-height: $lheight;
+   letter-spacing: $lspacing;
+
+}
+.sub-title-optinons{
+   color: #fff;
+
+   font-family: $ff2;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: 29px;
+   letter-spacing: 0.03em;
+   text-align: left;
+
+
+
+}
