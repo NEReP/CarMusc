@@ -1,14 +1,40 @@
+// получаем массив всех вкладок
+const tabs = document.querySelectorAll(".switch_toggle");
+// получаем массив всех блоков с содержимым вкладок
+const contents = document.querySelectorAll(".switch_tab");
+ 
+// запускаем цикл для каждой вкладки и добавляем на неё событие
+for (let i = 0; i < tabs.length; i++) {
+	tabs[i].addEventListener("click", ( event ) => {
+ 
+		// сначала нам нужно удалить активный класс именно с вкладок
+		let tabsChildren = event.target.parentElement.children;
+		for (let t = 0; t < tabsChildren.length; t++) {
+			tabsChildren[t].classList.remove("tab--active");
+		}
+		// добавляем активный класс
+		tabs[i].classList.add("tab--active");
+      
+		// теперь нужно удалить активный класс с блоков содержимого вкладок
+		let tabContent= event.target.parentElement.parentElement.nextElementSibling;
+		let tabContentChildren=tabContent.children;
+
+		for (let c = 0; c < tabContentChildren.length; c++) {
+			tabContentChildren[c].classList.remove("content--active");
+		}
+		// добавляем активный класс
+		contents[i].classList.add("content--active");
+ 
+	});
+}
+
 document.addEventListener("DOMContentLoaded", 
 function(){
    document.getElementById("burger").addEventListener("click", function(){
       document.querySelector("header").classList.toggle("open");
    })
 },
-function(){
-   document.getElementsByClassName("switch_toggle" && `href="tab_1"`).addEventListener("click", function(){
-      document.querySelector("tab").classList.toggle("open");
-   })
-},
+
 )
 document.getElementById('button-nav').addEventListener('click', scrollToElement);
 function scrollToElement(e) {
@@ -101,6 +127,8 @@ var slider2 = new Swiper (".about-advantages_slider", {
    },
    loop: true
 })
+
+
 
 
 
